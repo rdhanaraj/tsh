@@ -12,6 +12,12 @@ class Command
       weather = barometer.measure
 
       "Today, the temperature is #{weather.current.temperature.f}."
+    elsif command.start_with?('translate')
+      to = command.split[1]
+      text = command.gsub(/^translate /, '').gsub(/^#{to} /, '')
+      translator = BingTranslator.new(ENV['BING_ID'], ENV['BING_SECRET'])
+
+      translator.translate text, to: to.to_sym
     elsif command == 'calc'
       eval command
     elsif command == 'btc update'
