@@ -19,6 +19,10 @@ get '/' do
   haml :index
 end
 
+get '/docs' do
+  haml :docs
+end
+
 get '/facebook' do
   session['oauth'] = Koala::Facebook::OAuth.new(ENV['FB_ID'], ENV['FB_SECRET'], "#{request.base_url}/facebook/callback")
   redirect session['oauth'].url_for_oauth_code(scope: 'manage_notifications,publish_actions')
