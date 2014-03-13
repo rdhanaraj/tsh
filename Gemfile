@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra-authentication'
+gem 'rerun'
+gem 'haml'
+gem 'twilio-ruby'
+gem 'koala'
+gem 'barometer'
+gem 'coinbase'

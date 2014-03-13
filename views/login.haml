@@ -1,0 +1,13 @@
+%form{action: '/login', method: 'post'}
+  %fieldset
+    %legend Log In
+
+    .form-group
+      %label{for: 'user_email'} Email
+      %input.form-control{id: 'user_email', name: 'email', type: 'text'}
+
+    .form-group
+      %label{for: 'user_password'} Password
+      %input.form-control{id: 'user_password', name: 'password', type: 'password'}
+
+    %input.btn.btn-primary{value: 'Log In', type: 'submit'}

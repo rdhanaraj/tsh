@@ -1,0 +1,21 @@
+%form{action: '/signup', method: 'post'}
+  %fieldset
+    %legend Sign Up
+
+    .form-group
+      %label{for: 'user_email'} Email
+      %input.form-control{id: 'user_email', name: 'user[email]', type: 'text'}
+
+    .form-group
+      %label{for: 'user_phone_number'} Phone Number
+      %input.form-control{id: 'user_phone_number', name: 'user[phone_number]', type: 'text'}
+
+    .form-group
+      %label{for: 'user_password'} Password
+      %input.form-control{id: 'user_password', name: 'user[password]', type: 'password'}
+
+    .form-group
+      %label{for: 'user_password_confirmation'} Confirm Password
+      %input.form-control{id: 'user_password_confirmation', name: 'user[password_confirmation]', type: 'password'}
+
+    %input.btn.btn-primary{value: 'Sign Up', type: 'submit'}
