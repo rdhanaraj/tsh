@@ -18,8 +18,11 @@ class Command
       translator = BingTranslator.new(ENV['BING_ID'], ENV['BING_SECRET'])
 
       translator.translate text, to: to.to_sym
-    elsif command == 'calc'
-      eval command
+    elsif command.start_with?('calc')
+      calculator = Dentaku::Calculator.new
+      equation = command.gsub(/^calc /, '')
+
+      calculator.evaluate equation
     elsif command == 'btc update'
       coinbase = Coinbase::Client.new(ENV['CB_ID'], ENV['CB_SECRET'])
       "Bitcoin is #{coinbase.buy_price(1).format} today."

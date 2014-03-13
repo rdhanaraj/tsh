@@ -49,6 +49,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.14)
       addressable (~> 2.1)
+    dentaku (1.0.0)
     descendants_tracker (0.0.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -192,6 +193,7 @@ DEPENDENCIES
   bing_translator
   coinbase
   data_mapper
+  dentaku
   dm-postgres-adapter
   haml
   koala
