@@ -35,7 +35,11 @@ end
 
 post '/sms/?' do
   response = Twilio::TwiML::Response.new do |r|
-    r.Sms Command.run(params[:From], params[:Body])
+    responses = Array(Command.run(params[:From], params[:Body]))
+
+    responses.each do |res|
+      r.Sms res
+    end
   end
 
   response.text

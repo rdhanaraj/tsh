@@ -6,6 +6,14 @@ class Command
       post = command.gsub(/^fb post /, '')
 
       graph.put_wall_post(post)
+    elsif command == 'fb list notifs'
+      user = User.get(phone_number: from)
+      graph = Koala::Facebook::API.new(user.fb_access_token)
+      notifs = graph.get_connections('me', 'notifications')
+
+      notifs.each_with_object([]) do |n, a|
+        a << n['title']
+      end
     elsif command.start_with?('weather')
       location = command.gsub(/^weather /, '')
       barometer = Barometer.new(location)
