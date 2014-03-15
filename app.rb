@@ -6,6 +6,7 @@ require './command'
 class DmUser
   property :phone_number, String
   property :fb_access_token, String, length: 255
+  property :gm_access_token, String, length: 255
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/tsh')
@@ -30,6 +31,26 @@ end
 
 get '/facebook/callback' do
   current_user.update(fb_access_token: session['oauth'].get_access_token(params[:code]))
+  redirect '/'
+end
+
+get '/gmail' do
+  client = OAuth2::Client.new(ENV['GM_ID'], ENV['GM_SECRET'],
+    site: 'https://accounts.google.com',
+    authorize_url: '/o/oauth2/auth',
+    token_url: '/o/oauth2/token'
+  )
+  redirect client.auth_code.authorize_url(redirect_uri: "#{request.base_url}/gmail/callback", scope: 'https://mail.google.com/ https://www.googleapis.com/auth/userinfo.email')
+end
+
+get '/gmail/callback' do
+  client = OAuth2::Client.new(ENV['GM_ID'], ENV['GM_SECRET'],
+    site: 'https://accounts.google.com',
+    authorize_url: '/o/oauth2/auth',
+    token_url: '/o/oauth2/token'
+  )
+  current_user.update(gm_access_token: client.auth_code.get_token(params[:code], redirect_uri: "#{request.base_url}/gmail/callback").token)
+
   redirect '/'
 end
 
