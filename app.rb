@@ -52,7 +52,6 @@ get '/gmail/callback' do
   )
   access_token = client.auth_code.get_token(params[:code], redirect_uri: "#{request.base_url}/gmail/callback")
   email = access_token.get('https://www.googleapis.com/userinfo/email?alt=json').parsed
-  logger.info email
   current_user.update(gm_access_token: access_token.token, gm_email: email['data']['email'])
 
   redirect '/'
