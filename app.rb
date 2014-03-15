@@ -7,6 +7,7 @@ class DmUser
   property :phone_number, String
   property :fb_access_token, String, length: 255
   property :gm_access_token, String, length: 255
+  property :gm_email, String
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/tsh')
@@ -49,7 +50,10 @@ get '/gmail/callback' do
     authorize_url: '/o/oauth2/auth',
     token_url: '/o/oauth2/token'
   )
-  current_user.update(gm_access_token: client.auth_code.get_token(params[:code], redirect_uri: "#{request.base_url}/gmail/callback").token)
+  access_token = client.auth_code.get_token(params[:code], redirect_uri: "#{request.base_url}/gmail/callback")
+  email = access_token.get('https://www.googleapis.com/userinfo/email?alt=json').parsed
+  logger.info email
+  current_user.update(gm_access_token: access_token.token, gm_email: email['data']['email'])
 
   redirect '/'
 end

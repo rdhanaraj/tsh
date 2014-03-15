@@ -92,6 +92,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.3)
+    gmail_xoauth (0.4.1)
+      oauth (>= 0.3.6)
     gyoku (1.1.1)
       builder (>= 2.1.2)
     haml (4.0.5)
@@ -130,6 +132,7 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nori (2.3.0)
+    oauth (0.4.7)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
       jwt (~> 0.1.8)
@@ -201,6 +204,7 @@ DEPENDENCIES
   data_mapper
   dentaku
   dm-postgres-adapter
+  gmail_xoauth
   haml
   koala
   oauth2

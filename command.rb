@@ -35,6 +35,16 @@ class Command
     elsif command == 'btc update'
       coinbase = Coinbase::Client.new(ENV['CB_ID'], ENV['CB_SECRET'])
       "Bitcoin is #{coinbase.buy_price(1).format} today."
+    elsif command == 'gmail recent'
+      user = User.get(phone_number: from)
+      imap = Net::IMAP.new('imap.gmail.com', 993, usessl = true, certs = nil, verify = false)
+      imap.authenticate('XOAUTH2', user.gm_email, user.gm_access_token)
+
+      imap.examine('INBOX')
+      imap.search(['ALL'])[0..4].each_with_object([]) do |m, a|
+        envelope = imap.fetch(m, 'ENVELOPE')[0].attr['ENVELOPE']
+        a << "#{envelope.from[0].name}: \t#{envelope.subject}"
+      end
     else
       "Command unrecognized."
     end
