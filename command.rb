@@ -6,6 +6,7 @@ class Command
       post = command.gsub(/^fb post /, '')
 
       graph.put_wall_post(post)
+      'Posted successfully.'
     elsif command == 'fb list notifs'
       user = User.get(phone_number: from)
       graph = Koala::Facebook::API.new(user.fb_access_token)
