@@ -43,10 +43,10 @@ class Command
       imap.examine('INBOX')
       imap.search(['NOT', 'SEEN']).each_with_object([]) do |m, a|
         envelope = imap.fetch(m, 'ENVELOPE')[0].attr['ENVELOPE']
-        a << "#{envelope.from[0].name}: \t#{envelope.subject}"
+        a << envelope.subject unless envelope.subject.blank?
       end
     else
-      "Unrecognized command."
+      'Unrecognized command.'
     end
   end
 end
