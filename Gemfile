@@ -23,8 +23,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
+  gem 'minitest-rails'
 end
 
 group :production do

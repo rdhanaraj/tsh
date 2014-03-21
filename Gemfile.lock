@@ -112,6 +112,9 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    minitest-rails (0.9.2)
+      minitest (~> 4.7)
+      rails (>= 3.0)
     money (5.1.1)
       i18n (~> 0.6.0)
     multi_json (1.9.1)
@@ -226,6 +229,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   koala
+  minitest-rails
   oauth2
   pg
   rails (= 4.0.3)
