@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Tsh::Application.config.secret_key_base = '5e114875d36f6425f4e5e1e40eb749a66357f4eb755a4fa6e73771ed31ea02d1a08fdf7e87e419a6ae3d30758f5f386d865e43b10197f326e7d493d262f10744'
+Tsh::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || '5e114875d36f6425f4e5e1e40eb749a66357f4eb755a4fa6e73771ed31ea02d1a08fdf7e87e419a6ae3d30758f5f386d865e43b10197f326e7d493d262f10744'
