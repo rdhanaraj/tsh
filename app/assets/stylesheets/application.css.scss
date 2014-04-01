@@ -29,18 +29,18 @@ strong {
 }
 
 table.docs {
-	border-radius: 3px;
+	border-radius: 6px;
 	thead {
 		tr {
 			th {
-				font-size: 8rem;
+				font-size: 3rem;
 			}
 		}
 	}
 	tbody {
 		tr {
 			td {
-				padding: 5% auto 5% 1.5%;
+				padding: 25% auto 25% 1.5%;
 			}
 			[class$="hue"] {
 				font-weight: bold;
