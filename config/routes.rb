@@ -1,7 +1,8 @@
 Tsh::Application.routes.draw do
   devise_for :users
 
-  root 'pages#home'
+  root 'pages#index'
+  get '/settings' => 'pages#index'
   get '/docs' => 'pages#docs'
   get '/facebook' => 'facebook#index'
   get '/facebook/callback' => 'facebook#callback'
