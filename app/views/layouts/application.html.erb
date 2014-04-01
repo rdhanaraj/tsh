@@ -4,19 +4,17 @@
   <title>Text Shell</title>
 
   <%= stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <center>
-    <a href="<%= root_path %>">
-      <%= image_tag 'logo.png', width: 100 %>
-    </a>
-  </center>
+  <%= link_to root_path do %>
+    <%= image_tag 'logo.png', width: 100 %>
+  <% end %>
 
-  <div class="row">
-    <div class="col-md-3"></div>
+  <div class='row'>
+    <div class='col-md-3'></div>
     <div class='col-md-6 container'>
       <hr>
       <%= yield %>
@@ -24,18 +22,24 @@
     </div>
   </div>
 
-  <center>
-    <div class="btn-group">
-      <a class="btn btn-default" href="<%= docs_path %>"><i class="fa fa-files-o fa-2x"></i></a>
-      <% if user_signed_in? %>
-        <a class="btn btn-default" href="/settings"><i class="fa fa-cogs fa-2x"></i></a>
-        <a class="btn btn-default" href="<%= destroy_user_session_path %>"><i class="fa fa-sign-out fa-2x"></i></a>
-      <% else %>
-        <a class="btn btn-default" href="<%= new_user_session_path %>"><i class="fa fa-sign-in fa-2x"></i></a>
-      <% end %>
-    </div>
-  </center>
+  <div class='btn-group'>
+    <%= link_to docs_path, class: 'btn btn-default' do %>
+      <i class='fa fa-files-o fa-2x'></i> Docs
+    <% end %>
 
-  <br>
+    <% if user_signed_in? %>
+      <%= link_to '/settings', class: 'btn btn-default' do %>
+        <i class='fa fa-cogs fa-2x'></i> Settings
+      <% end %>
+
+      <%= link_to destroy_user_session_path, class: 'btn btn-default', method: :delete do %>
+        <i class='fa fa-sign-out fa-2x'></i> Sign Out
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path, class: 'btn btn-default' do %>
+        <i class='fa fa-sign-in fa-2x'></i> Sign In
+      <% end %>
+    <% end %>
+  </div>
 </body>
 </html>
