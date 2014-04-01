@@ -1,6 +1,6 @@
 # Text Shell (tsh): Pull data without data
 
-[HSHacks '14](http://hshacks.challengepost.com/submissions/21521-textshell-tsh-pull-data-without-data).
+[CreateHS March '14](http://www.createhs.com/challenge).
 
 ## Description
 
