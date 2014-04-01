@@ -78,6 +78,8 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     gmail_xoauth (0.4.1)
       oauth (>= 0.3.6)
     gyoku (1.1.1)
@@ -225,6 +227,7 @@ DEPENDENCIES
   coinbase
   dentaku
   devise
+  font-awesome-rails
   gmail_xoauth
   jbuilder (~> 1.2)
   jquery-rails

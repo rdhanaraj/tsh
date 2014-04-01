@@ -9,10 +9,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <center>
+    <a href="<%= root_path %>">
+      <%= image_tag 'logo.png', width: 100 %>
+    </a>
+  </center>
 
-  <div class='container'>
-    <%= yield %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class='col-md-6 container'>
+      <hr>
+      <%= yield %>
+      <hr>
+    </div>
   </div>
+
+  <center>
+    <div class="btn-group">
+      <a class="btn btn-default" href="<%= docs_path %>"><i class="fa fa-files-o fa-2x"></i></a>
+      <% if user_signed_in? %>
+        <a class="btn btn-default" href="<%= root_path %>"><i class="fa fa-cogs fa-2x"></i></a>
+        <a class="btn btn-default" href="<%= destroy_user_session_path %>"><i class="fa fa-sign-out fa-2x"></i></a>
+      <% else %>
+        <a class="btn btn-default" href="<%= new_user_session_path %>"><i class="fa fa-sign-out fa-2x"></i></a>
+      <% end %>
+    </div>
+  </center>
 
 </body>
 </html>

@@ -18,6 +18,7 @@ gem 'bing_translator'
 gem 'dentaku'
 gem 'oauth2'
 gem 'gmail_xoauth'
+gem 'font-awesome-rails'
 
 group :doc do
   gem 'sdoc', require: false

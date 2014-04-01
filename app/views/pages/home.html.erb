@@ -1,6 +1,8 @@
 <p class='lead'>
-  You may now text <strong>(646) 863-7942</strong> with any commands found on the <%= link_to 'docs', docs_path %>
+  You may now text <strong>(646) 863-7942</strong> with any commands found on the <%= link_to 'docs', docs_path %>.
 </p>
 
-<%= link_to 'Enable Facebook', facebook_path, class: 'btn btn-primary btn-lg btn-block' %>
+<%= link_to facebook_path, class: 'btn btn-primary btn-lg btn-block' do %>
+  Enable Facebook
+<% end %>
 <%= link_to 'Enable Gmail', gmail_path, class: 'btn btn-danger btn-lg btn-block' %>
