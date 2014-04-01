@@ -29,10 +29,10 @@ strong {
 }
 
 table.docs {
-	border-radius: 6px;
 	thead {
 		tr {
 			th {
+				border-radius: 6px;
 				font-size: 3rem;
 			}
 		}
@@ -40,7 +40,7 @@ table.docs {
 	tbody {
 		tr {
 			td {
-				padding: 1rem;
+				padding: 2rem 1rem;
 			}
 			[class$="hue"] {
 				font-weight: bold;
