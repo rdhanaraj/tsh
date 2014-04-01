@@ -12,16 +12,23 @@
  *= require_tree .
  */
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 
 body {
-  padding-top: 60px;
+  padding-top: 35px;
+  font-family: Raleway;
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 480;
 }
 
-.docs {
+
+.functionale {
+  font-family: Raleway;
+}
+
+table.docs {
 	tbody {
 		tr {
 			td {
@@ -53,4 +60,3 @@ strong {
 			}
 		}
 	}
-}
