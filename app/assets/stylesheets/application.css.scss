@@ -21,22 +21,25 @@ strong {
   font-weight: 500;
 }
 
-.blue_hue {
-	color: #4A89DC;
-}
+.docs {
+	font-weight: bold;
+	.blue_hue {
+		color: #4A89DC;
+	}
 
-.red_hue {
-	color: #DA4453;
-}
+	.red_hue {
+		color: #DA4453;
+	}
 
-.green_hue {
-	color: #37BC9B;
-}
+	.green_hue {
+		color: #37BC9B;
+	}
 
-.purple_hue {
-	color: #967ADC;
-}
+	.purple_hue {
+		color: #967ADC;
+	}
 
-.gray_hue {
-	color: #656D78;
+	.gray_hue {
+		color: #656D78;
+	}
 }
