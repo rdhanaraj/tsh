@@ -3,7 +3,9 @@ class SmsController < ApplicationController
 
   def create
     response = Twilio::TwiML::Response.new do |r|
-      responses = Array(Command.run(params[:Body], from: params[:From]))
+      # responses = Command.run(params[:Body], from: params[:From])
+
+      responses = ["hi", "hi", "hi"]
 
       responses.each do |res|
         r.Sms res
